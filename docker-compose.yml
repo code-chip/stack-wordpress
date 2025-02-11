@@ -1,0 +1,55 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    environment: 
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - db:/var/lib/mysql  
+    networks:
+      - wp-network
+    ports:
+      - 3306:3306
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: db                  # Nome do serviço do MySQL (no caso, db)
+      PMA_PORT: 3306                # Porta do MySQL
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}  # Senha do root do MySQL
+    ports:
+      - "8080:80"  # Porta onde o phpMyAdmin ficará acessível
+    networks:
+      - wp-network  
+    depends_on:
+      - db
+
+  web:
+    image: wordpress
+    container_name: wordpress
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+    volumes:
+      - ./:/var/www/html
+    user: "${UID}:${GID}"  
+    networks:
+      - wp-network
+    ports:
+      - 80:80
+    depends_on:
+      - db
+
+volumes:
+  db:
+  web:
+
+networks:
+  wp-network:
+    driver: bridge        
