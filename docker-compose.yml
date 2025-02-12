@@ -10,7 +10,7 @@ services:
     volumes:
       - db:/var/lib/mysql  
     networks:
-      - wp-network
+      - custom_network
     ports:
       - 3306:3306
 
@@ -18,13 +18,13 @@ services:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
     environment:
-      PMA_HOST: db                  # Nome do serviço do MySQL (no caso, db)
-      PMA_PORT: 3306                # Porta do MySQL
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}  # Senha do root do MySQL
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     ports:
-      - "8080:80"  # Porta onde o phpMyAdmin ficará acessível
+      - 8080:80
     networks:
-      - wp-network  
+      - custom_network  
     depends_on:
       - db
 
@@ -40,7 +40,7 @@ services:
       - ./:/var/www/html
     user: "${UID}:${GID}"  
     networks:
-      - wp-network
+      - custom_network
     ports:
       - 80:80
     depends_on:
@@ -51,5 +51,6 @@ volumes:
   web:
 
 networks:
-  wp-network:
-    driver: bridge        
+  custom_network:
+    driver: bridge
+    name: ${PROJECT_NAME}_network        
