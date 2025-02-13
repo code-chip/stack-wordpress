@@ -19,13 +19,12 @@ Wordpress
 1- Download the shellscript run command `git clone git@github.com:code-chip/stack-wordpress.git new_projec`  
 2- Access the fold with `cd new_projec`  
 3- Change the remote repository to the new one `git remote set-url origin git@github.com:your_user_github/new_project.git`. Check the change by running the command `git remote --v`  
-Before:
 ```bash
+Before:
 origin	git@github.com:code-chip/stack-wordpress.git (fetch)
 origin	git@github.com:code-chip/stack-wordpress.git (push)
-```
-After
-```bash
+
+After:
 origin	git@github.com:your_user_github/new_project.git (fetch)
 origin	git@github.com:your_user_github/new_project.git (push)
 ```
