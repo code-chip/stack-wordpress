@@ -28,8 +28,8 @@ Wordpress
 * `bin/dev up` or `bin/dev start` will start the docker-compose stack.
 * `bin/dev status` will print the current status of the docker-compose stack.
 * `bin/dev restart` will restart the docker-compose stack.
-* `bin/dev logs <container>` will print the logs for the given container.
-* `bin/dev console` will start a bash console inside the `wordpress` container.
+* `bin/dev logs <service>` will print the logs for the given container.
+* `bin/dev console <service>` will start a bash console inside the `wordpress, mysql or phpmyadmin` container.
 * `bin/dev stop` will stop all running docker-compose stack containers.
 * `bin/dev down` will stop and remove all docker-compose stack containers.
 
