@@ -45,22 +45,14 @@ rebuild() {
 stop() {
     echo "$1"
     if [ -n "$1" ]; then
-	    docker stop "$1"
+	    docker stop "${PROJECT_NAME}_$1"
     else
         docker-compose stop
     fi    
 }
 
-mysql() {
-    docker exec -it $mysql bash
-}
-
-phpmyadmin() {
-    docker exec -it $phpmyadmin bash
-}
-
-wordpress() {
-    docker exec -it $wordpress bash
+console() {
+    docker exec -it "${PROJECT_NAME}_$1" bash
 }
 
 status() {
@@ -68,15 +60,7 @@ status() {
 }
 
 logs() {
-	docker logs $wordpress
-}
-
-logs_mysql() {
-	docker logs $mysql
-}
-
-logs_phpmyadmin() {
-	docker logs $wordpress
+	docker logs "${PROJECT_NAME}_$1"
 }
 
 "$@"
