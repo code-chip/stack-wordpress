@@ -18,9 +18,20 @@ Wordpress
 ## How to Use
 1- Download the shellscript run command `git clone git@github.com:code-chip/stack-wordpress.git new_projec`  
 2- Access the fold with `cd new_projec`  
-3- Fills the environment variable values int the .env file.  
-4- Run the command `bin/dev build` or `docker-compose build`.  
-5- Start services `bin/dev up` or `docker-compose up -d`.
+3- Change the remote repository to the new one `git remote set-url origin git@github.com:your_user_github/new_project.git`. Check the change by running the command `git remote --v`  
+Before:
+```bash
+origin	git@github.com:code-chip/stack-wordpress.git (fetch)
+origin	git@github.com:code-chip/stack-wordpress.git (push)
+```
+After
+```bash
+origin	git@github.com:your_user_github/new_project.git (fetch)
+origin	git@github.com:your_user_github/new_project.git (push)
+```
+4- Fills the environment variable values int the .env file.  
+5- Run the command `bin/dev build` or `docker-compose build`.  
+6- Start services `bin/dev up` or `docker-compose up -d`.
 
 ## Available development commands
 * `bin/dev build` will force (re)building the docker-compose stack.
