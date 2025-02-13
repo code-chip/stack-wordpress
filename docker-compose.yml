@@ -40,7 +40,7 @@ services:
       WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
     volumes:
       - ./:/var/www/html
-    user: "${UID}:${GID}"  
+    user: "${MY_UID}:${GID}"  
     networks:
       - custom_network
     ports:
