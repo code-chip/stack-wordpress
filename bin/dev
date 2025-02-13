@@ -1,0 +1,82 @@
+#!/bin/bash
+
+source .env
+
+if [ -z "$PROJECT_NAME" ]; then
+    echo "Erro: PROJECT_NAME variable is not defined in .env file."
+    exit 1
+fi
+
+mysql="${PROJECT_NAME}_mysql"
+phpmyadmin="${PROJECT_NAME}_phpmyadmin"
+wordpress="${PROJECT_NAME}_wordpress"
+
+build() {
+	docker-compose build
+}
+
+start() {
+	docker-compose up -d
+}
+
+restart() {
+	docker-compose restart
+}
+
+up() {
+	start
+}
+
+down() {
+	docker-compose down
+}
+
+clear() {
+	docker-compose down -v
+    start
+}
+
+rebuild() {
+    down
+	build
+    up
+}
+
+stop() {
+    echo "$1"
+    if [ -n "$1" ]; then
+	    docker stop "$1"
+    else
+        docker-compose stop
+    fi    
+}
+
+mysql() {
+    docker exec -it $mysql bash
+}
+
+phpmyadmin() {
+    docker exec -it $phpmyadmin bash
+}
+
+wordpress() {
+    docker exec -it $wordpress bash
+}
+
+status() {
+	docker ps "$@"
+}
+
+logs() {
+	docker logs $wordpress
+}
+
+logs_mysql() {
+	docker logs $mysql
+}
+
+logs_phpmyadmin() {
+	docker logs $wordpress
+}
+
+"$@"
