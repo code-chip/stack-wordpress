@@ -19,7 +19,7 @@ Wordpress
 1- Download the shellscript run command `git clone git@github.com:code-chip/stack-wordpress.git new_projec`  
 2- Access the fold with `cd new_projec`  
 3- Fills the environment variable values int the .env file.  
-4- Run the command `bin/dev build` or `docker-compose build`.
+4- Run the command `bin/dev build` or `docker-compose build`.  
 5- Start services `bin/dev up` or `docker-compose up -d`.
 
 ## Available development commands
@@ -34,30 +34,30 @@ Wordpress
 * `bin/dev down` will stop and remove all docker-compose stack containers.
 
 ## Access broswer
-Wordpress [http:localhost](http:localhost)
-PHPMyAdmin [http:localhost:8080](http:localhost:8080)
+Wordpress [http:localhost](http:localhost)  
+PHPMyAdmin [http:localhost:8080](http:localhost:8080)  
 
 ## Documentation
 
-* Maintained by:
+* Maintained by:  
 [the Docker Community⁠](https://github.com/docker-library/wordpress)
 
-* Where to get help:
+* Where to get help:  
 [the Docker Community Slack]⁠(https://dockr.ly/comm-slack), [Server Fault](https://serverfault.com/help/on-topic)⁠, [Unix & Linux](https://unix.stackexchange.com/help/on-topic)⁠, or [Stack Overflow⁠](https://stackoverflow.com/help/on-topic)
 
-* Where to file issues:
+* Where to file issues:  
 https://github.com/docker-library/wordpress/issues⁠
 
-* Supported architectures: ([more info](https://github.com/docker-library/official-images#architectures-other-than-amd64)⁠)
+* Supported architectures: ([more info](https://github.com/docker-library/  official-images#architectures-other-than-amd64)⁠)
 amd64, arm32v5, arm32v6, arm32v7, arm64v8, i386, mips64le, ppc64le, riscv64, s390x
 
-* Published image artifact details:
+* Published image artifact details:  
 repo-info repo's repos/wordpress/ directory⁠ (history⁠)
 (image metadata, transfer size, etc)
 
-* Image updates:
+* Image updates:  
 [official-images repo's](https://github.com/docker-library/official-images/issues?q=label%3Alibrary%2Fwordpress) library/wordpress label⁠
 [official-images repo's](https://github.com/docker-library/official-images/blob/master/library/wordpress) library/wordpress file⁠ ([history](https://github.com/docker-library/official-images/commits/master/library/wordpress)⁠)
 
-* Source of this description:
+* Source of this description:  
 [docs repo's wordpress](https://github.com/docker-library/docs/tree/master/wordpress)/ directory⁠ ([history](https://github.com/docker-library/docs/commits/master/wordpress)⁠)
