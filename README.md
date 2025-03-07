@@ -18,15 +18,18 @@ Wordpress
 ## How to Use
 1- Download the shellscript run command `git clone git@github.com:code-chip/stack-wordpress.git new_projec`  
 2- Access the fold with `cd new_projec`  
-3- Change the remote repository to the new one `git remote set-url origin git@github.com:your_user_github/new_project.git`. Check the change by running the command `git remote --v`  
+3- Change the remote repository to the new one `git remote set-url origin git@github.com:your_user_github/new_project.git`.  
+4- Add the source repository to get updates `git remote set-url stack git@github.com:code-chip/stack-wordpress.git`. Check the change by running the command `git remote --v`  
 ```bash
 Before:
-origin	git@github.com:code-chip/stack-wordpress.git (fetch)
-origin	git@github.com:code-chip/stack-wordpress.git (push)
+origin git@github.com:code-chip/stack-wordpress.git (fetch)
+origin git@github.com:code-chip/stack-wordpress.git (push)
 
 After:
-origin	git@github.com:your_user_github/new_project.git (fetch)
-origin	git@github.com:your_user_github/new_project.git (push)
+origin git@github.com:your_user_github/new_project.git (fetch)
+origin git@github.com:your_user_github/new_project.git (push)
+stack git@github.com:code-chip/stack-wordpress.git (fetch)
+stack git@github.com:code-chip/stack-wordpress.git (push)
 ```
 4- Fills the environment variable values int the .env file.  
 5- Run the command `bin/dev build` or `docker-compose build`.  
@@ -39,9 +42,10 @@ origin	git@github.com:your_user_github/new_project.git (push)
 * `bin/dev status` will print the current status of the docker-compose stack.
 * `bin/dev restart` will restart the docker-compose stack.
 * `bin/dev logs <service>` will print the logs for the given container.
-* `bin/dev console <service>` will start a bash console inside the `wordpress, mysql or phpmyadmin` container.
-* `bin/dev stop` will stop all running docker-compose stack containers.
-* `bin/dev down` will stop and remove all docker-compose stack containers.
+* `bin/dev console <service>` will start a bash console inside the `web(wordpress), db(mysql) or phpmyadmin` container.
+* `bin/dev stop <service>` will stop all running docker-compose stack containers.
+* `bin/dev down <service>` will stop and remove all docker-compose stack containers.
+* `bin/dev exec --args` will start a bash console inside the `web(wordpress), db(mysql) or phpmyadmin` container.
 
 ## Access broswer
 Wordpress [http:localhost](http:localhost)  
